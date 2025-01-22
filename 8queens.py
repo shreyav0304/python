@@ -23,30 +23,30 @@ def is_safe(board, row, col):
 
     return True
 
-# # Print the board
-# def print_board(board):
-#     for row in board:
-#         print("  ".join(row))
-#     print()
+# Print the board
+def print_board(board):
+    for row in board:
+        print("  ".join(row))
+    print()
 
-# # Try to place queens
-# def solve_n_queens(board, row):
-#     # If all queens are placed, print the solution
-#     if row == len(board):
-#         print_board(board)
-#         return
+# Try to place queens
+def solve_n_queens(board, row):
+    # If all queens are placed, print the solution
+    if row == len(board):
+        print_board(board)
+        return
 
-#     # Try placing a queen in each column of the current row
-#     for col in range(len(board)):
-#         if is_safe(board, row, col):
-#             # Place the queen
-#             board[row][col] = 'Q'
-#             # Recur to place the next queen
-#             solve_n_queens(board, row + 1)
-#             # Backtrack: Remove the queen
-#             board[row][col] = '–'
+    # Try placing a queen in each column of the current row
+    for col in range(len(board)):
+        if is_safe(board, row, col):
+            # Place the queen
+            board[row][col] = 'Q'
+            # Recur to place the next queen
+            solve_n_queens(board, row + 1)
+            # Backtrack: Remove the queen
+            board[row][col] = '_'
 
-# # Input the number of queens and solve
-# N = int(input("Enter the number of Queens: "))
-# board = [['–' for _ in range(N)] for _ in range(N)]
-# solve_n_queens(board, 0)
+# Input the number of queens and solve
+N = int(input("Enter the number of Queens: "))
+board = [['_' for _ in range(N)] for _ in range(N)]
+solve_n_queens(board, 0)
